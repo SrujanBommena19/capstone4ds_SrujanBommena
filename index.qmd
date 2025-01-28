@@ -52,7 +52,7 @@ environments.
 The overview of the whole process used in the analytics is summarized as
 a picture below;
 
-![image](https://github.com/user-attachments/assets/d564b642-11d6-4f0b-9c67-85f188655244){width="544"}
+![](images/image1.png){fig-align="center" width="600"}
 
 1 Quantile regression forests (QRF) is a more general method of random
 forests that gives prediction intervals. QRF provides prediction
