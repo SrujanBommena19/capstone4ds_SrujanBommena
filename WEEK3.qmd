@@ -1,6 +1,0 @@
----
-title: "WEEK3"
-format: html
----
-
-this is week 3 file
