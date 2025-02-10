@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index</title>
+<title>capstone propoosal</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,35 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -72,152 +43,77 @@ window.Quarto = {
 
 <main class="content" id="quarto-document-content">
 
-
-
-
-<section id="week-3---literature-review" class="level1">
-<h1>WEEK 3 - LITERATURE REVIEW</h1>
-<section id="machine-learning-algorithms-real-world-applications-and-research-directions" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning-algorithms-real-world-applications-and-research-directions">Machine Learning: Algorithms, Real World Applications and Research Directions</h2>
-<section id="background-motivation" class="level3">
-<h3 class="anchored" data-anchor-id="background-motivation">BACKGROUND / MOTIVATION :</h3>
-<section id="describe-the-context-in-which-the-research-was-conducted" class="level4">
-<h4 class="anchored" data-anchor-id="describe-the-context-in-which-the-research-was-conducted">Describe the context in which the research was conducted</h4>
-<p>Predictive process analytics is a rapidly growing field that uses machine learning to forecast future business processes, particularly in industries like healthcare, manufacturing, finance, and logistics. This helps optimize workflows and improve decision-making processes. However, as organizations adopt predictive analytics, the accuracy of these models has improved, but this has led to a loss of interpretability. This study is part of explainable artificial intelligence (XAI), which aims to make machine learning models more transparent. Without understanding the reasons behind predictions, stakeholders may hesitate to trust or act on them, leading to increased regulatory scrutiny in sectors like healthcare and finance, where decisions directly impact human lives.</p>
-</section>
-<section id="what-problem-or-gap-in-the-existing-literature-does-the-paper-aim-to-address" class="level4">
-<h4 class="anchored" data-anchor-id="what-problem-or-gap-in-the-existing-literature-does-the-paper-aim-to-address">What problem or gap in the existing literature does the paper aim to address?</h4>
-<p>This study aims to address the systematic evaluation of explainability techniques in predictive process analytics, which has been recognized as an open problem. While the literature is such that quite a number of papers exist that are concerned with the improving predictive models or proposing new XAI methods, no standard evaluation frameworks have been developed to evaluate the methods in terms of reliability, stability, and fidelity. This study develops functionally-grounded evaluation metrics for measuring stability and fidelity of explanations produced by some of the popular XAI methods, namely LIME and SHAP, as well as checks whether these methods deliver consistent and faithful explanations for predictive process models constructed using XGBoost, a widely employed machine learning algorithm known for its high classification accuracy.</p>
-</section>
-<section id="significance-of-research-question" class="level4">
-<h4 class="anchored" data-anchor-id="significance-of-research-question">SIGNIFICANCE OF RESEARCH QUESTION</h4>
-<p>A Guided Investigation into LIME and SHAP Explainability in Process Analytics - Reviewed for the effectiveness of predictive models’ explanations. - Benefited the reliability of explainability methods undertaken by organizations. - Promoted trust in machine learning-enabled decision-making. - Provided a potential agenda for future research in XAI.</p>
-</section>
-</section>
-<section id="methods-used" class="level3">
-<h3 class="anchored" data-anchor-id="methods-used">METHODS USED</h3>
-<section id="methodologies-employed-and-how-these-methods-are-suited-to-address-the-research-question." class="level4">
-<h4 class="anchored" data-anchor-id="methodologies-employed-and-how-these-methods-are-suited-to-address-the-research-question.">Methodologies employed and how these methods are suited to address the research question.</h4>
-<p>Two properties, namely stability and fidelity, are assessed in this study by means of functionally grounded evaluation metrics. These metrics are calculated using predictive process models trained with XGBoost and are then conducted on three real-world event log datasets. The processes employed include:</p>
-</section>
-<section id="model-training" class="level4">
-<h4 class="anchored" data-anchor-id="model-training">Model Training:</h4>
-<p>XGBoost models are trained on three real-world event log datasets that capture business process execution data.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/w4.png" class="img-fluid figure-img" width="600"></p>
-<figcaption>image</figcaption>
-</figure>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">capstone propoosal</h1>
 </div>
-</section>
-<section id="explanation-generation" class="level4">
-<h4 class="anchored" data-anchor-id="explanation-generation">Explanation Generation:</h4>
-<p>LIME and SHAP explain the predictions made by the trained XGBoost models.</p>
-</section>
-<section id="stability-assessment" class="level4">
-<h4 class="anchored" data-anchor-id="stability-assessment">Stability Assessment:</h4>
-<p>Stability is assessed by generating explanations for similar instances and measuring how consistently the explanations remain.</p>
-<p><span class="math display">\[ \[
-Z = 1 - \frac{1}{d} P_d \sum_{i=1}^{s^2} f_i^k d \left(1 - \frac{k}{d} \right)
-\]
-\]</span></p>
-<p>where; - <strong>d</strong> = Number of features encoded from event attributes in the log<br>
-- <strong>M</strong> = Number of explanations generated for the process instance<br>
-- <strong>k</strong> = Number of most relevant features, where relevance or level of importance<br>
-is determined by an explanation generated for the process instance<br>
-- <strong>k</strong> = Average number of features selected across all <strong>M</strong> explanations for the<br>
-process instance<br>
-- <strong>s²_fi</strong> = Sample variance of the presence of feature <strong>fᵢ</strong> across all <strong>M</strong> explanations<br>
-for the process instance<br>
-- <strong>Z</strong> = Binary matrix of size <strong>M × d</strong>. Each row of the binary matrix represents<br>
-a feature subset, where a <strong>1</strong> at the <em>i-th</em> position means feature <strong>fᵢ</strong> has been<br>
-selected and a <strong>0</strong> means it has not been selected.</p>
-</section>
-<section id="fidelity-assessment" class="level4">
-<h4 class="anchored" data-anchor-id="fidelity-assessment">Fidelity Assessment:</h4>
-<p>Fidelity is evaluated by perturbing input features based on the explanation and observing how the corresponding predictions of the model change.</p>
-<p>The fidelity (F) of the interpreter for a single process instance in an event log is defined as:</p>
-<p><span class="math display">\[
-\[
-F = \frac{1}{|X_0|} \sum_{x \in X_0} \frac{|Y(x) - Y(x_0)|}{Y(x)}
-\]
-\]</span></p>
-<p>Where:<br>
-- ( x ) = Original feature vector for the process instance. - ( X_0 ) = Set of perturbations for ( x ) and ( x_0 X_0 ) - ( Y(x) ) = Prediction probability given input ( x ) - ( Y(x_0) ) = Prediction probability given input ( x_0 )</p>
-<p>This measure is naturally bounded by the fact that prediction probabilities<br>
-fall between 0 and 1.</p>
-</section>
-<section id="discuss-any-innovative-approaches-or-techniques-that-are-particularly-noteworthy." class="level4">
-<h4 class="anchored" data-anchor-id="discuss-any-innovative-approaches-or-techniques-that-are-particularly-noteworthy.">Discuss any innovative approaches or techniques that are particularly noteworthy.</h4>
-<p>The study uses the functionally-grounded evaluation approach to assess the quality of explanations generated by LIME and SHAP. Stability and fidelity are crucial for building trust in machine learning models, while the study introduces specific perturbation techniques for event log data. This innovative approach adapts functionally-grounded evaluation metrics to predictive process analytics, ensuring that the methodology is well-suited to the characteristics of business process datasets. This approach is particularly useful for comparing reliable and misleading explanations. The study’s innovative approach and techniques contribute to the field’s advancements.</p>
-</section>
-</section>
-<section id="significance-of-the-work" class="level3">
-<h3 class="anchored" data-anchor-id="significance-of-the-work">SIGNIFICANCE OF THE WORK</h3>
-<section id="highlight-the-key-findings-and-contributions-of-the-paper." class="level4">
-<h4 class="anchored" data-anchor-id="highlight-the-key-findings-and-contributions-of-the-paper.">Highlight the key findings and contributions of the paper.</h4>
-<p>Studies on XAI Methods for Predictive Process Analytics 1. SHAP is more stable than LIME because it makes sure that similar cases are explained the same way. 2. Both LIME and SHAP have reasonably moderate fidelity scores of use in explanations but do not always correspond to the reasoning provided by the model. 3. Preprocessing choices make a difference in the reliability of explanations, which would be recommended to be taken into consideration when it comes to predictive process analytics.</p>
-</section>
-<section id="explain-why-the-results-are-important-within-the-broader-context-of-the-field." class="level4">
-<h4 class="anchored" data-anchor-id="explain-why-the-results-are-important-within-the-broader-context-of-the-field.">Explain why the results are important within the broader context of the field.</h4>
-<p>These findings will have far-reaching implications for hydroponics in settings where the output, reasoning, and structure of predictive analytics must be explained. An interpretable AI diagnosis may boost the trust of healthcare professionals-diagnosticians in the system. In finance, AI-driven risk evaluation demands greater transparency from regulatory authorities on how the assessments are made. Addressing these issues by fostering the evaluative process of explainability methods assures the responsible adoption of AI in decision-making processes.</p>
-</section>
-<section id="discuss-the-implications-of-the-findings-for-future-research-or-practice" class="level4">
-<h4 class="anchored" data-anchor-id="discuss-the-implications-of-the-findings-for-future-research-or-practice">Discuss the implications of the findings for future research or practice</h4>
-<p>Predictive process analytics uses machine learning models to predict future process behavior, but their decision-making process can be difficult for humans to understand. This research aims to develop explainable artificial intelligence (XAI) methods specifically tailored for predictive process analytics, aiming to explain not only the model’s predictions but also how different features influence them in a process context. Hybrid explainability approaches combine multiple techniques to improve the quality and reliability of AI explanations. For example, a hybrid approach could combine local explanation methods like LIME with global methods like SHAP, providing detailed and generalizable insights into a model’s behavior. Research could also investigate the reliability of explanation methods across different machine learning algorithms, helping to identify the most effective XAI techniques for specific models and use cases.</p>
-</section>
-</section>
-<section id="connection-to-other-work" class="level3">
-<h3 class="anchored" data-anchor-id="connection-to-other-work">CONNECTION TO OTHER WORK</h3>
-<section id="relate-the-paper-to-other-relevant-studies" class="level4">
-<h4 class="anchored" data-anchor-id="relate-the-paper-to-other-relevant-studies">Relate the paper to other relevant studies</h4>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="capstone-proposal" class="level1">
+<h1>CAPSTONE PROPOSAL</h1>
+<section id="names-of-your-teammates-if-any-or-specify-if-you-are-working-independently." class="level4">
+<h4 class="anchored" data-anchor-id="names-of-your-teammates-if-any-or-specify-if-you-are-working-independently.">Names of your teammates, if any, or specify if you are working independently.</h4>
 <ul>
-<li>Research mainly products process monitoring with a particular focus on process-aware AI models and explainable dashboards.</li>
-<li>Updates existing work on LIME and SHAP, evaluating the reliability of the approaches in the context of predictive analytics.</li>
-<li>Develops toward more general XAI frameworks, focused on fidelity-and-stability assessment.</li>
-<li>Extends earlier work by critically examining the applied methods in the domain of XAI rather than merely implementing them.</li>
+<li>Srujan Bommena (myself)</li>
+<li>Yashwanth krishna</li>
+<li>Sathwika Bairi</li>
 </ul>
 </section>
-<section id="how-does-this-paper-build-on-or-differ-from-previous-work" class="level4">
-<h4 class="anchored" data-anchor-id="how-does-this-paper-build-on-or-differ-from-previous-work">How does this paper build on or differ from previous work?</h4>
-<p>This paper critically evaluates the reliability of XAI methods, moving beyond performance benchmarks to examine consistency and accuracy. It introduces a structured functionally-grounded evaluation framework applicable across different datasets and model architectures, and investigates real-world datasets for relevance and applicability.</p>
+<section id="research-topic-you-will-focus-on-for-the-remainder-of-the-semester" class="level4">
+<h4 class="anchored" data-anchor-id="research-topic-you-will-focus-on-for-the-remainder-of-the-semester">Research topic you will focus on for the remainder of the semester</h4>
+<p>Machine Learning and Predictive Analytics: Developing models to predict outcomes based on historical data.</p>
 </section>
-<section id="identify-any-references-to-seminal-works-or-influential-papers-cited-by-the-authors." class="level4">
-<h4 class="anchored" data-anchor-id="identify-any-references-to-seminal-works-or-influential-papers-cited-by-the-authors.">Identify any references to seminal works or influential papers cited by the authors.</h4>
-<p>References classical sources on explainable AI, including Doshi-Velez and Kim (2017) on interpretable machine learning.</p>
-<p>Invokes previous works on LIME and SHAP in predictive process analytics, particularly Ribeiro et al.&nbsp;(2016) and Lundberg &amp; Lee (2017).</p>
-<p>Borrowed benchmark work on predictive process monitoring of Teinemaa et al.&nbsp;(2019).</p>
-<p>Anchored by a broader background on Earth AI and machine learning to provide context and depth.</p>
+<section id="mathematicalstatistical-methods-you-plan-to-use-in-the-capstone" class="level4">
+<h4 class="anchored" data-anchor-id="mathematicalstatistical-methods-you-plan-to-use-in-the-capstone">Mathematical/Statistical methods you plan to use in the capstone</h4>
+<section id="regression-models" class="level5">
+<h5 class="anchored" data-anchor-id="regression-models">REGRESSION MODELS:</h5>
+<p>Linear Regression: Model relationships between dependent and independent variables.</p>
+<p>Multiple Regression: Extends linear regression with multiple independent variables.</p>
+<p>Logistic Regression: Used for binary classification problems (e.g., fraud detection).</p>
 </section>
-</section>
-<section id="relevance-to-capstone-project" class="level3">
-<h3 class="anchored" data-anchor-id="relevance-to-capstone-project">RELEVANCE TO CAPSTONE PROJECT</h3>
-<section id="discuss-how-the-content-of-the-paper-might-be-relevant-to-your-own-capstone-project." class="level4">
-<h4 class="anchored" data-anchor-id="discuss-how-the-content-of-the-paper-might-be-relevant-to-your-own-capstone-project.">Discuss how the content of the paper might be relevant to your own capstone project.</h4>
-<p>The core of the capstone deals with designing predictive models with historical data, directed essentially toward an explanation for the sake of transparency. The findings of the study may determine the best explanation method to be applied, while evaluation metrics functionally grounded can be adjusted for interpretability assessment. Trust and reliability are paramount in AI-assisted decision-making.</p>
-</section>
-<section id="identify-any-specific-methods-theories-or-findings-that-you-might-incorporate-into-your-project." class="level4">
-<h4 class="anchored" data-anchor-id="identify-any-specific-methods-theories-or-findings-that-you-might-incorporate-into-your-project.">Identify any specific methods, theories, or findings that you might incorporate into your project.</h4>
-<ol type="1">
-<li><p>We suggest the use of SHAP for feature attribution, as it shows strong stability and fidelity.</p></li>
-<li><p>Use stability and fidelity metrics to test the reliability of your explanations.</p></li>
-<li><p>Use perturbation approaches to validate your model explanations.</p></li>
-<li><p>Investigate how functionally grounded evaluation can be extended to additional learning algorithms beyond XGBoost.</p></li>
-</ol>
-</section>
-<section id="highlight-any-potential-areas-where-your-capstone-could-expand-upon-or-diverge-from-the-papers-findings." class="level4">
-<h4 class="anchored" data-anchor-id="highlight-any-potential-areas-where-your-capstone-could-expand-upon-or-diverge-from-the-papers-findings.">Highlight any potential areas where your capstone could expand upon or diverge from the paper’s findings.</h4>
-<p>This paper discusses the potential of a project to evaluate the explainability of deep learning models using hybrid methods like LIME and SHAP, incorporating user feedback for real-world application evaluation, and exploring additional domain-specific interpretability measures tailored to the project’s dataset and objectives.</p>
+<section id="unsupervised" class="level5">
+<h5 class="anchored" data-anchor-id="unsupervised">UNSUPERVISED :</h5>
+<p>k-Means Clustering: Groups data into k clusters based on distance metrics.</p>
+<p>Principal Component Analysis (PCA): Dimensionality reduction technique using eigenvalues and eigen vectors.</p>
+<p>Auto-encoders: Deep learning models for feature extraction.</p>
+<p>PROBABILISTIC MODELS Bayesian Inference: Updates probabilities as new evidence is<br>
+introduced.</p>
+<p>Hidden Markov Models (HMM): Used in sequence prediction (e.g., speech recognition).</p>
+<p>Gaussian Mixture Models (GMM): Clustering approach based on probability distributions</p>
 </section>
 </section>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">REFERENCES</h3>
-<p>Du, M., Liu, N., Yang, F., Ji, S., Hu, X.: On attribution of recurrent neural network predictions via additive decomposition. In: The World Wide Web Conference - WWW 19 (2019).(https://doi.org/10.1145/3308558.3313545)</p>
-<p>Mehdiyev, N., Fettke, P.: Prescriptive Process Analytics with Deep Learning and Explainable Artificial Intelligence. In: ECIS 2020 Proceedings. Marrakech, Morocco (15-17 June 2020),(https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1121&amp;context=ecis2020_rp)</p>
-<div data-align="right">
-<p>SRUJAN BOMMENA</p>
-</div>
+<section id="preferred-programming-languages-for-the-project" class="level4">
+<h4 class="anchored" data-anchor-id="preferred-programming-languages-for-the-project">Preferred programming language(s) for the project</h4>
+<p>R – Core programming language for data processing, analysis, and modeling.</p>
+<p>tidyverse – Data wrangling and visualization.</p>
+<p>caret – Model training and evaluation.</p>
+<p>gplot2 – Data visualization.</p>
+<p>randomForest, xgboost – Machine learning algorithms.</p>
+<p>shiny – Interactive dashboards (if required).</p>
+<p>SQL – For querying and managing data sets.</p>
+<p>Python (if needed) – For additional ML modeling and integration</p>
 </section>
+<section id="source-and-method-of-obtaining-your-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="source-and-method-of-obtaining-your-dataset">Source and method of obtaining your dataset</h4>
+<p>Google scholar, Kaggle, twitter</p>
+</section>
+<section id="potential-references-tentative" class="level4">
+<h4 class="anchored" data-anchor-id="potential-references-tentative">Potential references (tentative)</h4>
+<p>Antons, D., &amp; Breidbach, C. F. (2018). Big data, big insights? Advancing service innovation and design with machine learning. Journal of Service Research, 21, 17–39. (https://doi.org/10.1177/1094670517738373)</p>
+<p>Mohana Chelvan, P., Perumal, K.: A Survey of Feature Selection Stability Mea-sures. International Journal of Computer and Information Technology 5, Article14 (2016), https://www.ijcit.com/archives/volume5/issue1/Paper050114.pdf.</p>
 </section>
 </section>
 
