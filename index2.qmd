@@ -1,14 +1,0 @@
-CAPSTONE PROPOSAL
-
-
-
-Names of your teammates, if any, or specify if you are working independently. Sathwika Bairi  Yashwanth krishna Srujan Bommena 
-Research topic you will focus on for the remainder of the semester Machine Learning and Predictive Analytics: Developing models to predict outcomes based on historical data. 
-Mathematical/Statistical methods you plan to use in the capstone
-REGRESSION MODELS:
-Linear Regression: Model relationships between dependent and independent 	variables.
-Multiple Regression: Extends linear regression with multiple independent variables.
-Logistic Regression: Used for binary classification problems (e.g., fraud detection). UNSUPERVISED : k-Means Clustering: Groups data into k clusters based on distance metrics. Principal Component Analysis (PCA): Dimensionality reduction technique 			using eigenvalues and eigenvectors.
-Auto-encoders: Deep learning models for feature extraction. PROBABILISTIC MODELS 
-Bayesian Inference: Updates probabilities as new evidence is introduced. Hidden Markov Models (HMM): Used in sequence prediction (e.g., speech 			recognition). Gaussian Mixture Models (GMM): Clustering approach based on probability 			distributions.
-Preferred programming language(s) for the project R – Core programming language for data processing, analysis, and modeling. tidyverse – Data wrangling and visualization. caret – Model training and evaluation. ggplot2 – Data visualization. randomForest, xgboost – Machine learning algorithms. shiny – Interactive dashboards (if required). SQL – For querying and managing datasets. Python (if needed) – For additional ML modeling and integration  Source and method of obtaining your dataset Google scholar, Kaggle, twitter  Potential references, including tentative ones Antons, D., & Breidbach, C. F. (2018). Big data, big insights? Advancing service in-novation and design with machine learning. Journal of Service Research, 21, 17–39.  (https://doi.org/10.1177/1094670517738373) Mohana Chelvan, P., Perumal, K.: A Survey of Feature Selection Stability Mea-sures. International Journal of Computer and Information Technology 5, Article14 (2016),  https://www.ijcit.com/archives/volume5/issue1/Paper050114.pdf.           
