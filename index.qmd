@@ -1,69 +1,106 @@
----
-title: "capstone proposal"
-format: html
----
+# MACHINE LEARNING AND PREDICTIVE ANALYTICS IN HEALTH CARE
 
-# CAPSTONE PROPOSAL
+### Developing Models to Predict Outcomes in Healthcare
 
-#### Names of your teammates, if any, or specify if you are working independently.
+## Table of Contents
 
--   Srujan Bommena (myself)
--   Yashwanth krishna
--   Sathwika Bairi 
+1.  [Introduction](#introduction)\
+2.  [Methodology](#methodology)\
+3.  [Data Collection](#data-collection)\
+4.  [Model Selection](#model-selection)\
+5.  [Evaluation Metrics](#evaluation-metrics)\
+6.  [Results and Discussion](#results-and-discussion)\
+7.  [Conclusion](#conclusion)\
+8.  [References](#references)
 
-#### Research topic you will focus on for the remainder of the semester
+------------------------------------------------------------------------
 
-Machine Learning and Predictive Analytics: Developing models to predict outcomes based on historical data.
+## INTRODUCTION {#introduction}
 
-#### Mathematical/Statistical methods you plan to use in the capstone
+### PROBLEM DEFINATION
 
-##### REGRESSION MODELS:
+Machine learning enables healthcare prediction because healthcare institutions have better access to patient data that lets them implement earlier interventions employing individualized therapeutic approaches. The goal of this work utilizes a patient records database to create diagnostic prediction models that will assist clinicians in both better diagnosis and healthcare decision processes.
 
-Linear Regression: Model relationships between dependent and independent variables.
+### CONTEXT AND BACKGROUND
 
-Multiple Regression: Extends linear regression with multiple independent variables.
+Healthcare predictive analysis performs pattern identification through statistical and machine learning operations on patient information. Logistic regression functions as one of the traditional methods utilized for binary classification since a long time. The predictive power of Support Vector Machines (SVM) and XGBoost increases because they can identify sophisticated patterns present in the data. The assessment of these models in actual healthcare applications becomes possible through analysis of the CSV dataset which contains demographic details and symptom information along with diagnosed diseases.
 
-Logistic Regression: Used for binary classification problems (e.g., fraud detection).
+### OBJECTIVES AND GOALS
 
-##### UNSUPERVISED :
+The main objectives of our capstone project focus on analytics which we detail in the three points listed below.
 
-k-Means Clustering: Groups data into k clusters based on distance metrics.
+-   Create multiple machine learning models alongside their evaluation to identify diseases.
+-   A comparison of the disease classification outcomes between logistic regression, SVM and XGBoost must be evaluated.
+-   The solution provides data assessment techniques to discover diseases early and enhance medical outcomes.
+-   The team conducts exploratory data analysis which includes prediction trend analysis by using visualizations.
+-   The system generates multiple plots containing confusion matrices together with ROC curves and feature importance charts.
+-   Using identified patient characteristics which affect disease predictions will help healthcare practitioners make better decisions.
+-   Evaluating the model's resilience requires using hyperparameter adjustment along with cross-validation.
 
-Principal Component Analysis (PCA): Dimensionality reduction technique using eigenvalues and eigen vectors.
+### SUMMARY OF APPROACH
 
-Auto-encoders: Deep learning models for feature extraction.
+Data analysis through exploratory data analysis (EDA) begins by determining missing values alongside examining data distributions and the main influencing features in disease outcomes. The machine learning model receives high-quality inputs through preprocessing which includes data cleaning together with categorical values encoding and feature scaling procedures. Three predictive frameworks including Logistic Regression together with Support Vector Machine (SVM) and XGBoost function to perform disease classifications through patient data analysis. The training process includes data splitting and optimized performance through the execution of hyperparameter tuning followed by cross-validation methods. The evaluation of model effectiveness depends on metrics which include accuracy together with precision recall and F1-score and AUC-ROC curves. The interpretation of results improves through the generation of three specific visual elements: confusion matrices and feature importance plots along with ROC curves. This study demonstrates the significance of disease prediction indicators which help enhance early medical diagnosis platforms for healthcare administrations.
 
-PROBABILISTIC MODELS Bayesian Inference: Updates probabilities as new evidence is\
-introduced.
+#### LOGISTIC REGRESSION
 
-Hidden Markov Models (HMM): Used in sequence prediction (e.g., speech recognition).
+Logistic Regression functions as a statistical method dedicated to binary classification by determining disease occurrence probabilities.
 
-Gaussian Mixture Models (GMM): Clustering approach based on probability distributions
+#### SUPPORT VECTOR MACHINE
 
-#### Preferred programming language(s) for the project
+The classification technology Support Vector Machines (SVM) detects the best dividing hyperplane which separates diverse disease classes.
 
-R – Core programming language for data processing, analysis, and modeling.
+#### XGBOOST
 
-tidyverse – Data wrangling and visualization.
+XGBoost functions as an algorithm which uses gradient boosting to construct precise predictions from several weak prediction models.
 
-caret – Model training and evaluation.
+## METHODOLOGY {#methodology}
 
-gplot2 – Data visualization.
+### DATA AND SOURCES
 
-randomForest, xgboost – Machine learning algorithms.
+The analyzed dataset originated from Kaggle under its name "Disease Symptoms and Patient Profile Dataset." The dataset includes both demographic data which includes age and gender alongside the recorded symptoms and confirmed diseases. The collection of data originated from healthcare records and assessments of patient symptoms after anonymous data processing. Dataset preprocessing covers three essential steps that involve filling empty data points while converting categories into numbers and normalizing all numerical data for data consistency and prediction accuracy improvement. Patient attributes consisting of age along with gender and symptoms and diagnosed diseases are included in the "Disease Symptoms and Patient Profile Dataset." The processing stage addresses multiple steps by dealing with null values alongside encoding group data points and creating normalized scales for numerical measurements.
 
-shiny – Interactive dashboards (if required).
+### MATHEMATICAL MODELS
 
-SQL – For querying and managing data sets.
+#### LOGISTIC REGRESSION
 
-Python (if needed) – For additional ML modeling and integration
+The linear logistic regression model serves as a method for two-category classification. Using the sigmoid function logistic regression identifies the probability that a disease will appear.
 
-#### Source and method of obtaining your dataset
+$$
+P(y=1|X) = \frac{1}{1+e^{- (\beta_0 + \beta_1 X_1 + \dots + \beta_n X_n)} }
+$$
 
-Google scholar, Kaggle, twitter
+#### SUPPORT VECTOR MACHINE
 
-#### Potential references (tentative)
+The SVM technique generates a boundary hyperplane which splits data classes inside multi-dimensional spaces. The decision boundary emerges from maximizing the separation distance between data points:
 
-Antons, D., & Breidbach, C. F. (2018). Big data, big insights? Advancing service innovation and design with machine learning. Journal of Service Research, 21, 17–39. (https://doi.org/10.1177/1094670517738373)
+$$
+f(X) = w^T X + b
+$$
 
-Mohana Chelvan, P., Perumal, K.: A Survey of Feature Selection Stability Mea-sures. International Journal of Computer and Information Technology 5, Article14 (2016), https://www.ijcit.com/archives/volume5/issue1/Paper050114.pdf.
+w is the weight vector and b is the bias term.
+
+#### XGBOOST
+
+XGBOOST is the ensemble learning technique that builds multiple decision trees.
+
+``` math
+L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
+```
+
+l is the loss function and omega is the regularization term.
+
+### EXPERIMENTAL DESIGN AND ANALYTICAL PROCEDURES
+
+The analytical steps inlcude the following;
+
+1.  DATA PREPROCESSING: The preprocessing stage includes addressing data gaps while converting categorical groups into numerical forms (symptoms) and age normalization for numerical attributes.
+
+2.  FEATURE SELECTION: Analysis of disease prediction features requires techniques that use correlation analysis and feature importance ranking methods.
+
+3.  MODEL TRAINING: The baseline model of Logistic Regression received training as a benchmark for describing model performance.Support Vector Machine uses its algorithm to discover the hyperplane which provides maximum separation between different classes. XGBoost operates through boosting methodology to combine various weak learners that improve classification outcomes.
+
+4.  EVALUATION: The successful measurement of model accuracy requires determining the ratio of accurate predictions and precision assesses the true positive count against all detected positives. Model performance regarding its ability to detect positive cases is measured by recall and its classification capabilities are evaluated through AUC-ROC measurements.
+
+5.  INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.
+
+### SOFTWARE TOOLS

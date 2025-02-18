@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>capstone proposal</title>
+<title>index</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,6 +34,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -43,77 +72,119 @@ ul.task-list li input[type="checkbox"] {
 
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">capstone proposal</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="capstone-proposal" class="level1">
-<h1>CAPSTONE PROPOSAL</h1>
-<section id="names-of-your-teammates-if-any-or-specify-if-you-are-working-independently." class="level4">
-<h4 class="anchored" data-anchor-id="names-of-your-teammates-if-any-or-specify-if-you-are-working-independently.">Names of your teammates, if any, or specify if you are working independently.</h4>
+<section id="machine-learning-and-predictive-analytics-in-health-care" class="level1">
+<h1>MACHINE LEARNING AND PREDICTIVE ANALYTICS IN HEALTH CARE</h1>
+<section id="developing-models-to-predict-outcomes-in-healthcare" class="level3">
+<h3 class="anchored" data-anchor-id="developing-models-to-predict-outcomes-in-healthcare">Developing Models to Predict Outcomes in Healthcare</h3>
+</section>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
+<ol type="1">
+<li><a href="#introduction">Introduction</a><br>
+</li>
+<li><a href="#methodology">Methodology</a><br>
+</li>
+<li><a href="#data-collection">Data Collection</a><br>
+</li>
+<li><a href="#model-selection">Model Selection</a><br>
+</li>
+<li><a href="#evaluation-metrics">Evaluation Metrics</a><br>
+</li>
+<li><a href="#results-and-discussion">Results and Discussion</a><br>
+</li>
+<li><a href="#conclusion">Conclusion</a><br>
+</li>
+<li><a href="#references">References</a></li>
+</ol>
+<hr>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">INTRODUCTION</h2>
+<section id="problem-defination" class="level3">
+<h3 class="anchored" data-anchor-id="problem-defination">PROBLEM DEFINATION</h3>
+<p>Machine learning enables healthcare prediction because healthcare institutions have better access to patient data that lets them implement earlier interventions employing individualized therapeutic approaches. The goal of this work utilizes a patient records database to create diagnostic prediction models that will assist clinicians in both better diagnosis and healthcare decision processes.</p>
+</section>
+<section id="context-and-background" class="level3">
+<h3 class="anchored" data-anchor-id="context-and-background">CONTEXT AND BACKGROUND</h3>
+<p>Healthcare predictive analysis performs pattern identification through statistical and machine learning operations on patient information. Logistic regression functions as one of the traditional methods utilized for binary classification since a long time. The predictive power of Support Vector Machines (SVM) and XGBoost increases because they can identify sophisticated patterns present in the data. The assessment of these models in actual healthcare applications becomes possible through analysis of the CSV dataset which contains demographic details and symptom information along with diagnosed diseases.</p>
+</section>
+<section id="objectives-and-goals" class="level3">
+<h3 class="anchored" data-anchor-id="objectives-and-goals">OBJECTIVES AND GOALS</h3>
+<p>The main objectives of our capstone project focus on analytics which we detail in the three points listed below.</p>
 <ul>
-<li>Srujan Bommena (myself)</li>
-<li>Yashwanth krishna</li>
-<li>Sathwika Bairi</li>
+<li>Create multiple machine learning models alongside their evaluation to identify diseases.</li>
+<li>A comparison of the disease classification outcomes between logistic regression, SVM and XGBoost must be evaluated.</li>
+<li>The solution provides data assessment techniques to discover diseases early and enhance medical outcomes.</li>
+<li>The team conducts exploratory data analysis which includes prediction trend analysis by using visualizations.</li>
+<li>The system generates multiple plots containing confusion matrices together with ROC curves and feature importance charts.</li>
+<li>Using identified patient characteristics which affect disease predictions will help healthcare practitioners make better decisions.</li>
+<li>Evaluating the model’s resilience requires using hyperparameter adjustment along with cross-validation.</li>
 </ul>
 </section>
-<section id="research-topic-you-will-focus-on-for-the-remainder-of-the-semester" class="level4">
-<h4 class="anchored" data-anchor-id="research-topic-you-will-focus-on-for-the-remainder-of-the-semester">Research topic you will focus on for the remainder of the semester</h4>
-<p>Machine Learning and Predictive Analytics: Developing models to predict outcomes based on historical data.</p>
+<section id="summary-of-approach" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-approach">SUMMARY OF APPROACH</h3>
+<p>Data analysis through exploratory data analysis (EDA) begins by determining missing values alongside examining data distributions and the main influencing features in disease outcomes. The machine learning model receives high-quality inputs through preprocessing which includes data cleaning together with categorical values encoding and feature scaling procedures. Three predictive frameworks including Logistic Regression together with Support Vector Machine (SVM) and XGBoost function to perform disease classifications through patient data analysis. The training process includes data splitting and optimized performance through the execution of hyperparameter tuning followed by cross-validation methods. The evaluation of model effectiveness depends on metrics which include accuracy together with precision recall and F1-score and AUC-ROC curves. The interpretation of results improves through the generation of three specific visual elements: confusion matrices and feature importance plots along with ROC curves. This study demonstrates the significance of disease prediction indicators which help enhance early medical diagnosis platforms for healthcare administrations.</p>
+<section id="logistic-regression" class="level4">
+<h4 class="anchored" data-anchor-id="logistic-regression">LOGISTIC REGRESSION</h4>
+<p>Logistic Regression functions as a statistical method dedicated to binary classification by determining disease occurrence probabilities.</p>
 </section>
-<section id="mathematicalstatistical-methods-you-plan-to-use-in-the-capstone" class="level4">
-<h4 class="anchored" data-anchor-id="mathematicalstatistical-methods-you-plan-to-use-in-the-capstone">Mathematical/Statistical methods you plan to use in the capstone</h4>
-<section id="regression-models" class="level5">
-<h5 class="anchored" data-anchor-id="regression-models">REGRESSION MODELS:</h5>
-<p>Linear Regression: Model relationships between dependent and independent variables.</p>
-<p>Multiple Regression: Extends linear regression with multiple independent variables.</p>
-<p>Logistic Regression: Used for binary classification problems (e.g., fraud detection).</p>
+<section id="support-vector-machine" class="level4">
+<h4 class="anchored" data-anchor-id="support-vector-machine">SUPPORT VECTOR MACHINE</h4>
+<p>The classification technology Support Vector Machines (SVM) detects the best dividing hyperplane which separates diverse disease classes.</p>
 </section>
-<section id="unsupervised" class="level5">
-<h5 class="anchored" data-anchor-id="unsupervised">UNSUPERVISED :</h5>
-<p>k-Means Clustering: Groups data into k clusters based on distance metrics.</p>
-<p>Principal Component Analysis (PCA): Dimensionality reduction technique using eigenvalues and eigen vectors.</p>
-<p>Auto-encoders: Deep learning models for feature extraction.</p>
-<p>PROBABILISTIC MODELS Bayesian Inference: Updates probabilities as new evidence is<br>
-introduced.</p>
-<p>Hidden Markov Models (HMM): Used in sequence prediction (e.g., speech recognition).</p>
-<p>Gaussian Mixture Models (GMM): Clustering approach based on probability distributions</p>
+<section id="xgboost" class="level4">
+<h4 class="anchored" data-anchor-id="xgboost">XGBOOST</h4>
+<p>XGBoost functions as an algorithm which uses gradient boosting to construct precise predictions from several weak prediction models.</p>
 </section>
 </section>
-<section id="preferred-programming-languages-for-the-project" class="level4">
-<h4 class="anchored" data-anchor-id="preferred-programming-languages-for-the-project">Preferred programming language(s) for the project</h4>
-<p>R – Core programming language for data processing, analysis, and modeling.</p>
-<p>tidyverse – Data wrangling and visualization.</p>
-<p>caret – Model training and evaluation.</p>
-<p>gplot2 – Data visualization.</p>
-<p>randomForest, xgboost – Machine learning algorithms.</p>
-<p>shiny – Interactive dashboards (if required).</p>
-<p>SQL – For querying and managing data sets.</p>
-<p>Python (if needed) – For additional ML modeling and integration</p>
 </section>
-<section id="source-and-method-of-obtaining-your-dataset" class="level4">
-<h4 class="anchored" data-anchor-id="source-and-method-of-obtaining-your-dataset">Source and method of obtaining your dataset</h4>
-<p>Google scholar, Kaggle, twitter</p>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">METHODOLOGY</h2>
+<section id="data-and-sources" class="level3">
+<h3 class="anchored" data-anchor-id="data-and-sources">DATA AND SOURCES</h3>
+<p>The analyzed dataset originated from Kaggle under its name “Disease Symptoms and Patient Profile Dataset.” The dataset includes both demographic data which includes age and gender alongside the recorded symptoms and confirmed diseases. The collection of data originated from healthcare records and assessments of patient symptoms after anonymous data processing. Dataset preprocessing covers three essential steps that involve filling empty data points while converting categories into numbers and normalizing all numerical data for data consistency and prediction accuracy improvement. Patient attributes consisting of age along with gender and symptoms and diagnosed diseases are included in the “Disease Symptoms and Patient Profile Dataset.” The processing stage addresses multiple steps by dealing with null values alongside encoding group data points and creating normalized scales for numerical measurements.</p>
 </section>
-<section id="potential-references-tentative" class="level4">
-<h4 class="anchored" data-anchor-id="potential-references-tentative">Potential references (tentative)</h4>
-<p>Antons, D., &amp; Breidbach, C. F. (2018). Big data, big insights? Advancing service innovation and design with machine learning. Journal of Service Research, 21, 17–39. (https://doi.org/10.1177/1094670517738373)</p>
-<p>Mohana Chelvan, P., Perumal, K.: A Survey of Feature Selection Stability Mea-sures. International Journal of Computer and Information Technology 5, Article14 (2016), https://www.ijcit.com/archives/volume5/issue1/Paper050114.pdf.</p>
+<section id="mathematical-models" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-models">MATHEMATICAL MODELS</h3>
+<section id="logistic-regression-1" class="level4">
+<h4 class="anchored" data-anchor-id="logistic-regression-1">LOGISTIC REGRESSION</h4>
+<p>The linear logistic regression model serves as a method for two-category classification. Using the sigmoid function logistic regression identifies the probability that a disease will appear.</p>
+<p><span class="math display">\[
+P(y=1|X) = \frac{1}{1+e^{- (\beta_0 + \beta_1 X_1 + \dots + \beta_n X_n)} }
+\]</span></p>
+</section>
+<section id="support-vector-machine-1" class="level4">
+<h4 class="anchored" data-anchor-id="support-vector-machine-1">SUPPORT VECTOR MACHINE</h4>
+<p>The SVM technique generates a boundary hyperplane which splits data classes inside multi-dimensional spaces. The decision boundary emerges from maximizing the separation distance between data points:</p>
+<p><span class="math display">\[
+f(X) = w^T X + b
+\]</span></p>
+<p>w is the weight vector and b is the bias term.</p>
+</section>
+<section id="xgboost-1" class="level4">
+<h4 class="anchored" data-anchor-id="xgboost-1">XGBOOST</h4>
+<p>XGBOOST is the ensemble learning technique that builds multiple decision trees.</p>
+<pre class="math"><code>L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)</code></pre>
+<p>l is the loss function and omega is the regularization term.</p>
+</section>
+</section>
+<section id="experimental-design-and-analytical-procedures" class="level3">
+<h3 class="anchored" data-anchor-id="experimental-design-and-analytical-procedures">EXPERIMENTAL DESIGN AND ANALYTICAL PROCEDURES</h3>
+<p>The analytical steps inlcude the following;</p>
+<ol type="1">
+<li><p>DATA PREPROCESSING: The preprocessing stage includes addressing data gaps while converting categorical groups into numerical forms (symptoms) and age normalization for numerical attributes.</p></li>
+<li><p>FEATURE SELECTION: Analysis of disease prediction features requires techniques that use correlation analysis and feature importance ranking methods.</p></li>
+<li><p>MODEL TRAINING: The baseline model of Logistic Regression received training as a benchmark for describing model performance.Support Vector Machine uses its algorithm to discover the hyperplane which provides maximum separation between different classes. XGBoost operates through boosting methodology to combine various weak learners that improve classification outcomes.</p></li>
+<li><p>EVALUATION: The successful measurement of model accuracy requires determining the ratio of accurate predictions and precision assesses the true positive count against all detected positives. Model performance regarding its ability to detect positive cases is measured by recall and its classification capabilities are evaluated through AUC-ROC measurements.</p></li>
+<li><p>INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.</p></li>
+</ol>
+</section>
+<section id="software-tools" class="level3">
+<h3 class="anchored" data-anchor-id="software-tools">SOFTWARE TOOLS</h3>
+</section>
 </section>
 </section>
 
