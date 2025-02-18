@@ -6,12 +6,9 @@
 
 1.  [Introduction](#introduction)\
 2.  [Methodology](#methodology)\
-3.  [Data Collection](#data-collection)\
-4.  [Model Selection](#model-selection)\
-5.  [Evaluation Metrics](#evaluation-metrics)\
-6.  [Results and Discussion](#results-and-discussion)\
-7.  [Conclusion](#conclusion)\
-8.  [References](#references)
+3.  [Results and Discussion](#results-and-discussion)\
+4.  [Conclusion](#conclusion)\
+5.  [References](#references)
 
 ------------------------------------------------------------------------
 
@@ -83,9 +80,9 @@ w is the weight vector and b is the bias term.
 
 XGBOOST is the ensemble learning technique that builds multiple decision trees.
 
-``` math
-L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
-```
+$$
+L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k) 
+$$
 
 l is the loss function and omega is the regularization term.
 
