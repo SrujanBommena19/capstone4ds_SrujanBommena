@@ -1,14 +1,21 @@
-# MACHINE LEARNING AND PREDICTIVE ANALYATICS IN HEALTH CARE
+ # MACHINE LEARNING AND PREDICTIVE ANALYATICS IN HEALTH CARE
 ### A DATA-DRIVEN APPROACH TO DISEASE PREDICTION
 ## Table of Contents  
 1. [Introduction](#introduction)  
-2. [Methodology](#methodology)  
-3. [Data Collection](#data-collection)  
-4. [Model Selection](#model-selection)  
-5. [Evaluation Metrics](#evaluation-metrics)  
-6. [Results and Discussion](#results-and-discussion)  
-7. [Conclusion](#conclusion)  
-8. [References](#references) 
+   - [Defining the problem](#Defining-the-problem)  
+   - [Context and Background](#context-and-background)  
+   - [Objectives and Goals](#objectives-and-goals)  
+   - [Summary of Approach](#summary-of-approach)  
+2. [Methods](#methods)  
+   - [Data Acquisition and Sources](#data-acquisition-and-sources)  
+   - [Mathematical and Statistical Models](#mathematical-and-statistical-models)  
+   - [Experimental Design and Analytical Procedures](#experimental-design-and-analytical-procedures)  
+   - [Software and Tools](#software-and-tools)  
+   - [Ethical Considerations](#ethical-considerations) 
+3. [Procedures](Procedures)
+4. [Results and Discussion](#results-and-discussion)
+5. [Conclusion](#conclusion)  
+6. [References](#references) 
 
 
 ---
@@ -63,6 +70,9 @@ Scikit-learn operates through the system to conduct Random Forest model training
 ## METHODOLOGY
 
 ### DATA ACQUISITION AND SOURCES
+
+The "Disease Symptoms and Patient Profile Dataset" originates from Kaggle and features structured information about demographic data as well as symptoms together with diagnosed diseases. The dataset originated from healthcare records which have undergone anonymization and combined with symptom assessment reports. The preprocessing operations start with dealing with missing data elements followed by encoding categorial attributes and performing scale normalization on numerical features to enhance both consistency and model prediction accuracy.
+
 An ensemble learning method called Random Forest Classifier consists of multiple decision trees in its structure. The model performs prediction on outcome  by collecting decision tree predictions from multiple trees that use features .
 
 $$
@@ -83,14 +93,75 @@ The formula for calculating Gini impurity includes the proportion of class  in a
 
 A sequential guide explains how the Random Forest model should be trained along with its evaluation process:
 
+
+![Blank diagram](https://github.com/user-attachments/assets/b60a6a6f-bd6b-4d01-869d-5ead42775e95)
+
+
 1. The program retrieves the dataset by reading the CSV file.
 2. The data needs preprocessing to handle missing values, conduct categorical variable encoding and normalize all numerical features.
 3. The dataset requires division into training segments comprising 80% of the data while the remaining 20% constitutes the testing portion.
-4. Employ the RandomForestClassifier from scikit-learn to process the training of the Random Forest model.
+4. **RandomForestClassification** The model gets implemented through `scikit-learn` tools while completing hyperparameter optimization for better results.
+    - Important predictors can be determined through the application of `feature_importances_`.
+    - we have to plot sensitivity versus specificity through Receiver Operating Characteristic curve plotting.
+    - We need to create data visualisation through the classifier in `seaborn`
+5. Evaluation metrics
+- Accuracy : the proportions of correct predictions
 
+$$ 
+Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
+$$
 
+   - Precision : The ration of true to total predictions
 
+$$
+Precision = \frac{TP}{TP+FP}
+$$
 
+   - Recall : The ability of model to identify the predictions
 
+$$
+Recall = \frac{TP}{TP+FN}
+$$
+ 
+TP : True Positives
 
+TN : True Negatives 
 
+FP : False Positives
+
+FN : False Negatives
+   
+### SOFTWARES AND TOOLS
+
+The platform I used is Python together with its library components:
+
+- `Pandas` for data manipulation.
+- The implementation of `Random forest classifier` happens through scikit-learn framework.
+- `Matplotlib` and `Seaborn` for data visualization.
+- `Numpy` is used for numerical computations and arrays handling.
+- `Google Colab` is used for cloud based computations and handling the code exeutions without GPU/CPU.
+
+## PROCEDURES
+**STEP-1** We need to install the necessary libraries
+```
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+```
+**STEP-2** Installing `scikit-learn` for data splitting, Scaling, Modeling and Evaluation
+```
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, roc_curve
+```
+**STEP-3** Loading CSV file into the data frame
+```
+data = pd.read_csv("/content/Disease_symptom_and_patient_profile_dataset.csv")
+```
+```
+data.info()
+data.head(5)
+data.shape
+```
