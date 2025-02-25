@@ -4,7 +4,16 @@
 
 ## Table of Contents  
 1. [Introduction](#introduction)  
-2. [Methodology](#methodology)  
+   - [Problem Defination](#Problem-Defination)  
+   - [Context and Background](#context-and-background)  
+   - [Objectives and Goals](#objectives-and-goals)  
+   - [Summary of Approach](#summary-of-approach)  
+2. [Methods](#methods)  
+   - [Data Acquisition and Sources](#data-acquisition-and-sources)  
+   - [Mathematical and Statistical Models](#mathematical-and-statistical-models)  
+   - [Experimental Design and Analytical Procedures](#experimental-design-and-analytical-procedures)  
+   - [Software and Tools](#software-and-tools)  
+   - [Ethical Considerations](#ethical-considerations) 
 3. [Data Collection](#data-collection)  
 4. [Model Selection](#model-selection)  
 5. [Evaluation Metrics](#evaluation-metrics)  
@@ -38,9 +47,10 @@ The main objectives of our capstone project focus on analytics which we detail i
 
 ### SUMMARY OF APPROACH
 
-Data analysis through exploratory data analysis (EDA) begins by determining missing values alongside examining data distributions and the main influencing features in disease outcomes. The machine learning model receives high-quality inputs through preprocessing which includes data cleaning together with categorical values encoding and feature scaling procedures.
-Three predictive frameworks including Logistic Regression together with Support Vector Machine (SVM) and XGBoost function to perform disease classifications through patient data analysis. The training process includes data splitting and optimized performance through the execution of hyperparameter tuning followed by cross-validation methods. The evaluation of model effectiveness depends on metrics which include accuracy together with precision recall and F1-score and AUC-ROC curves.
-The interpretation of results improves through the generation of three specific visual elements: confusion matrices and feature importance plots along with ROC curves. This study demonstrates the significance of disease prediction indicators which help enhance early medical diagnosis platforms for healthcare administrations.
+The initial stage of data analysis with exploratory data analysis (EDA) involves identifying missing data as well as studying distribution patterns and significant disease outcome influencing features. Good quality inputs into the machine learning model are achieved through preprocessing steps which involve data cleaning followed by encoding categorical values and performing feature scaling.
+Patient data classification uses three predictive models including Logistic Regression as well as Support Vector Machine (SVM) and XGBoost to perform disease outcomes prediction. The training procedure starts with data splitting after which performance optimization uses hyperparameter tuning followed by applying cross-validation methods. Model assessment requires metrics based on accuracy measurements supported by precision recall and F1-score values as well as AUC-ROC curves.
+
+This interpretation improves by using three specific visualization tools consisting of confusion matrices and feature importance plots and ROC curves. Medical diagnosis platforms for healthcare administrations prove more effective due to disease prediction indicators according to this research study.
 
 #### LOGISTIC REGRESSION
 Logistic Regression functions as a statistical method dedicated to binary classification by determining disease occurrence probabilities.
@@ -54,9 +64,9 @@ XGBoost functions as an algorithm which uses gradient boosting to construct prec
 ## METHODOLOGY
 
 ### DATA AND SOURCES
-The analyzed dataset originated from Kaggle under its name "Disease Symptoms and Patient Profile Dataset." The dataset includes both demographic data which includes age and gender alongside the recorded symptoms and confirmed diseases. The collection of data originated from healthcare records and assessments of patient symptoms after anonymous data processing. 
-Dataset preprocessing covers three essential steps that involve filling empty data points while converting categories into numbers and normalizing all numerical data for data consistency and prediction accuracy improvement.
-Patient attributes consisting of age along with gender and symptoms and diagnosed diseases are included in the "Disease Symptoms and Patient Profile Dataset." The processing stage addresses multiple steps by dealing with null values alongside encoding group data points and creating normalized scales for numerical measurements.
+The "Disease Symptoms and Patient Profile Dataset" from Kaggle served as the origin of the analyzed data. The data includes population information including age and sex data as well as patient-reported symptoms and tested disease results. The data collection process used healthcare records in combination with patient symptom assessments which underwent anonymous data processing. 
+The preprocessing process includes three core procedures to replace missing data elements followed by identifying numeric representations for classification data and applying normalization techniques for numerical values for achieving better consistency and predictive success.
+The "Disease Symptoms and Patient Profile Dataset" includes patient attributes that combine age with gender and symptoms as well as diagnosed diseases. The processing stage performs various operations which include null value treatment followed by group data encoding and numerical value normalization.
 
 ### MATHEMATICAL MODELS 
 
@@ -106,4 +116,39 @@ The successful measurement of model accuracy requires determining the ratio of a
 5. INTERPRETATION:
 The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.
 
+```mermaid
+graph TD;
+    A[Data Preprocessing] --> B[Feature Selection];
+    B --> C[Model Training];
+    C --> D[Evaluation];
+    D --> E[Interpretation];
+
+    A -->|Handle missing data, Encode categorical variables, Normalize age| B;
+    B -->|Correlation analysis, Feature importance ranking| C;
+    C -->|Logistic Regression, SVM, XGBoost| D;
+    D -->|Accuracy, Precision, Recall, AUC-ROC| E;
+    E -->|Identify key symptoms & characteristics| F[Insights for Disease Prediction];
+```
+
 ### SOFTWARE TOOLS 
+
+#### PROGRAMMING LANGUAGES
+1. PYTHON : This is the primary language that is used in this capstone project for preprocessing the data, model training and the evaluation.
+2. MACHINE LEARNING : With the help of machine learning, this project could be able to predict the outcomes and do predictive analysis with data driven decisions.
+
+#### ENVIRONMENT 
+GOOGLE COLAB : I have used google colab for the cloud-based execution of my code, I believe it has exceptional and enhanced computational resources.
+
+#### LIBRARIES AND MODELS
+1. PANDAS : Pandas are used for data manipulation and pre processing the datasets
+
+2. NUMPY : It is used for numerical computations and data handling
+
+3. SCIKIT-LEARN : scikit learn is used for implementing the models in the code such as SVM, Logistic and random forest.
+
+4. XGBOOST : To perform a better feature analysis and handling.
+
+5. MATPLOTLIB AND SEABORN : We use matplotlib and seaborn to mke visualization of the analysis for the better understanding of the data, and as well for exploratory analysis.
+
+### ETHICAL CONSIDERATIONS
+The dataset contains anonymized patient data to protect privacy. Data management needs strict ethical treatment alongside equal model prediction distribution and unbiased healthcare choices must be ensured.
