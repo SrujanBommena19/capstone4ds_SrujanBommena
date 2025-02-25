@@ -187,7 +187,9 @@ f(X) = w^T X + b
 <section id="xgboost-1" class="level4">
 <h4 class="anchored" data-anchor-id="xgboost-1">XGBOOST</h4>
 <p>XGBOOST is the ensemble learning technique that builds multiple decision trees.</p>
-<pre class="math"><code>L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)</code></pre>
+<p><span class="math display">\[
+L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
+\]</span></p>
 <p>l is the loss function and omega is the regularization term.</p>
 </section>
 </section>
@@ -201,17 +203,11 @@ f(X) = w^T X + b
 <li><p>EVALUATION: The successful measurement of model accuracy requires determining the ratio of accurate predictions and precision assesses the true positive count against all detected positives. Model performance regarding its ability to detect positive cases is measured by recall and its classification capabilities are evaluated through AUC-ROC measurements.</p></li>
 <li><p>INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.</p></li>
 </ol>
-<pre class="mermaid"><code>graph TD;
-    A[Data Preprocessing] --&gt; B[Feature Selection];
-    B --&gt; C[Model Training];
-    C --&gt; D[Evaluation];
-    D --&gt; E[Interpretation];
-
-    A --&gt;|Handle missing data, Encode categorical variables, Normalize age| B;
-    B --&gt;|Correlation analysis, Feature importance ranking| C;
-    C --&gt;|Logistic Regression, SVM, XGBoost| D;
-    D --&gt;|Accuracy, Precision, Recall, AUC-ROC| E;
-    E --&gt;|Identify key symptoms &amp; characteristics| F[Insights for Disease Prediction];</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/WhatsApp%20Image%202025-02-24%20at%208.10.32%20PM.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
 </section>
 <section id="software-tools" class="level3">
 <h3 class="anchored" data-anchor-id="software-tools">SOFTWARE TOOLS</h3>
