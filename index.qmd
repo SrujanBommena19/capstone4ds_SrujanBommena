@@ -114,7 +114,7 @@ The analytical steps inlcude the following;
 
 5.  INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.
 
-![](images/WhatsApp%20Image%202025-02-24%20at%208.10.32%20PM.jpeg){fig-align="center" width="500"}
+![](images/WhatsApp%20Image%202025-02-24%20at%208.10.32%20PM.jpeg){fig-align="center" width="322"}
 
 ### SOFTWARE TOOLS
 
