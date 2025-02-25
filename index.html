@@ -83,9 +83,34 @@ window.Quarto = {
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ol type="1">
-<li><a href="#introduction">Introduction</a><br>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#Problem-Defination">Problem Defination</a><br>
 </li>
-<li><a href="#methodology">Methodology</a><br>
+<li><a href="#context-and-background">Context and Background</a><br>
+</li>
+<li><a href="#objectives-and-goals">Objectives and Goals</a><br>
+</li>
+<li><a href="#summary-of-approach">Summary of Approach</a><br>
+</li>
+</ul></li>
+<li><a href="#methods">Methods</a>
+<ul>
+<li><a href="#data-acquisition-and-sources">Data Acquisition and Sources</a><br>
+</li>
+<li><a href="#mathematical-and-statistical-models">Mathematical and Statistical Models</a><br>
+</li>
+<li><a href="#experimental-design-and-analytical-procedures">Experimental Design and Analytical Procedures</a><br>
+</li>
+<li><a href="#software-and-tools">Software and Tools</a><br>
+</li>
+<li><a href="#ethical-considerations">Ethical Considerations</a></li>
+</ul></li>
+<li><a href="#data-collection">Data Collection</a><br>
+</li>
+<li><a href="#model-selection">Model Selection</a><br>
+</li>
+<li><a href="#evaluation-metrics">Evaluation Metrics</a><br>
 </li>
 <li><a href="#results-and-discussion">Results and Discussion</a><br>
 </li>
@@ -120,7 +145,8 @@ window.Quarto = {
 </section>
 <section id="summary-of-approach" class="level3">
 <h3 class="anchored" data-anchor-id="summary-of-approach">SUMMARY OF APPROACH</h3>
-<p>Data analysis through exploratory data analysis (EDA) begins by determining missing values alongside examining data distributions and the main influencing features in disease outcomes. The machine learning model receives high-quality inputs through preprocessing which includes data cleaning together with categorical values encoding and feature scaling procedures. Three predictive frameworks including Logistic Regression together with Support Vector Machine (SVM) and XGBoost function to perform disease classifications through patient data analysis. The training process includes data splitting and optimized performance through the execution of hyperparameter tuning followed by cross-validation methods. The evaluation of model effectiveness depends on metrics which include accuracy together with precision recall and F1-score and AUC-ROC curves. The interpretation of results improves through the generation of three specific visual elements: confusion matrices and feature importance plots along with ROC curves. This study demonstrates the significance of disease prediction indicators which help enhance early medical diagnosis platforms for healthcare administrations.</p>
+<p>The initial stage of data analysis with exploratory data analysis (EDA) involves identifying missing data as well as studying distribution patterns and significant disease outcome influencing features. Good quality inputs into the machine learning model are achieved through preprocessing steps which involve data cleaning followed by encoding categorical values and performing feature scaling. Patient data classification uses three predictive models including Logistic Regression as well as Support Vector Machine (SVM) and XGBoost to perform disease outcomes prediction. The training procedure starts with data splitting after which performance optimization uses hyperparameter tuning followed by applying cross-validation methods. Model assessment requires metrics based on accuracy measurements supported by precision recall and F1-score values as well as AUC-ROC curves.</p>
+<p>This interpretation improves by using three specific visualization tools consisting of confusion matrices and feature importance plots and ROC curves. Medical diagnosis platforms for healthcare administrations prove more effective due to disease prediction indicators according to this research study.</p>
 <section id="logistic-regression" class="level4">
 <h4 class="anchored" data-anchor-id="logistic-regression">LOGISTIC REGRESSION</h4>
 <p>Logistic Regression functions as a statistical method dedicated to binary classification by determining disease occurrence probabilities.</p>
@@ -139,7 +165,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="methodology">METHODOLOGY</h2>
 <section id="data-and-sources" class="level3">
 <h3 class="anchored" data-anchor-id="data-and-sources">DATA AND SOURCES</h3>
-<p>The analyzed dataset originated from Kaggle under its name “Disease Symptoms and Patient Profile Dataset.” The dataset includes both demographic data which includes age and gender alongside the recorded symptoms and confirmed diseases. The collection of data originated from healthcare records and assessments of patient symptoms after anonymous data processing. Dataset preprocessing covers three essential steps that involve filling empty data points while converting categories into numbers and normalizing all numerical data for data consistency and prediction accuracy improvement. Patient attributes consisting of age along with gender and symptoms and diagnosed diseases are included in the “Disease Symptoms and Patient Profile Dataset.” The processing stage addresses multiple steps by dealing with null values alongside encoding group data points and creating normalized scales for numerical measurements.</p>
+<p>The “Disease Symptoms and Patient Profile Dataset” from Kaggle served as the origin of the analyzed data. The data includes population information including age and sex data as well as patient-reported symptoms and tested disease results. The data collection process used healthcare records in combination with patient symptom assessments which underwent anonymous data processing. The preprocessing process includes three core procedures to replace missing data elements followed by identifying numeric representations for classification data and applying normalization techniques for numerical values for achieving better consistency and predictive success. The “Disease Symptoms and Patient Profile Dataset” includes patient attributes that combine age with gender and symptoms as well as diagnosed diseases. The processing stage performs various operations which include null value treatment followed by group data encoding and numerical value normalization.</p>
 </section>
 <section id="mathematical-models" class="level3">
 <h3 class="anchored" data-anchor-id="mathematical-models">MATHEMATICAL MODELS</h3>
@@ -161,9 +187,7 @@ f(X) = w^T X + b
 <section id="xgboost-1" class="level4">
 <h4 class="anchored" data-anchor-id="xgboost-1">XGBOOST</h4>
 <p>XGBOOST is the ensemble learning technique that builds multiple decision trees.</p>
-<p><span class="math display">\[
-L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
-\]</span></p>
+<pre class="math"><code>L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)</code></pre>
 <p>l is the loss function and omega is the regularization term.</p>
 </section>
 </section>
@@ -177,9 +201,45 @@ L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
 <li><p>EVALUATION: The successful measurement of model accuracy requires determining the ratio of accurate predictions and precision assesses the true positive count against all detected positives. Model performance regarding its ability to detect positive cases is measured by recall and its classification capabilities are evaluated through AUC-ROC measurements.</p></li>
 <li><p>INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.</p></li>
 </ol>
+<pre class="mermaid"><code>graph TD;
+    A[Data Preprocessing] --&gt; B[Feature Selection];
+    B --&gt; C[Model Training];
+    C --&gt; D[Evaluation];
+    D --&gt; E[Interpretation];
+
+    A --&gt;|Handle missing data, Encode categorical variables, Normalize age| B;
+    B --&gt;|Correlation analysis, Feature importance ranking| C;
+    C --&gt;|Logistic Regression, SVM, XGBoost| D;
+    D --&gt;|Accuracy, Precision, Recall, AUC-ROC| E;
+    E --&gt;|Identify key symptoms &amp; characteristics| F[Insights for Disease Prediction];</code></pre>
 </section>
 <section id="software-tools" class="level3">
 <h3 class="anchored" data-anchor-id="software-tools">SOFTWARE TOOLS</h3>
+<section id="programming-languages" class="level4">
+<h4 class="anchored" data-anchor-id="programming-languages">PROGRAMMING LANGUAGES</h4>
+<ol type="1">
+<li>PYTHON : This is the primary language that is used in this capstone project for preprocessing the data, model training and the evaluation.</li>
+<li>MACHINE LEARNING : With the help of machine learning, this project could be able to predict the outcomes and do predictive analysis with data driven decisions.</li>
+</ol>
+</section>
+<section id="environment" class="level4">
+<h4 class="anchored" data-anchor-id="environment">ENVIRONMENT</h4>
+<p>GOOGLE COLAB : I have used google colab for the cloud-based execution of my code, I believe it has exceptional and enhanced computational resources.</p>
+</section>
+<section id="libraries-and-models" class="level4">
+<h4 class="anchored" data-anchor-id="libraries-and-models">LIBRARIES AND MODELS</h4>
+<ol type="1">
+<li><p>PANDAS : Pandas are used for data manipulation and pre processing the datasets</p></li>
+<li><p>NUMPY : It is used for numerical computations and data handling</p></li>
+<li><p>SCIKIT-LEARN : scikit learn is used for implementing the models in the code such as SVM, Logistic and random forest.</p></li>
+<li><p>XGBOOST : To perform a better feature analysis and handling.</p></li>
+<li><p>MATPLOTLIB AND SEABORN : We use matplotlib and seaborn to mke visualization of the analysis for the better understanding of the data, and as well for exploratory analysis.</p></li>
+</ol>
+</section>
+</section>
+<section id="ethical-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="ethical-considerations">ETHICAL CONSIDERATIONS</h3>
+<p>The dataset contains anonymized patient data to protect privacy. Data management needs strict ethical treatment alongside equal model prediction distribution and unbiased healthcare choices must be ensured.</p>
 </section>
 </section>
 </section>
