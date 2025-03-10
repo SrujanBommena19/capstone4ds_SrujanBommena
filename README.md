@@ -149,14 +149,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ```
-**STEP-2** Installing `scikit-learn` for data splitting, Scaling, Modeling and Evaluation
+**STEP-2 IMPORT SCIKIT-LEARN TOOLS**
+
+Installing `scikit-learn` for data splitting, Scaling, Modeling and Evaluation
 ```
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, roc_curve
 ```
-**STEP-3** Loading CSV file into the data frame
+**STEP-3 LOADING THE DATASET**
 ```
 data = pd.read_csv("/content/Disease_symptom_and_patient_profile_dataset.csv")
 ```
@@ -165,3 +167,100 @@ data.info()
 data.head(5)
 data.shape
 ```
+![image](https://github.com/user-attachments/assets/3961505d-6f50-46b4-b9e4-74b248e9fa28)
+
+**STEP-4 DATA CLEANING AND ENCODING**
+Now after data skimming and trimming we need to categorize the variables in the dataset.
+
+```
+label_encoders = {}
+for col in df.columns:
+    if df[col].dtype == 'object':
+        le = LabelEncoder()
+        df[col] = le.fit_transform(df[col])
+        label_encoders[col] = le
+```
+**STEP-5 TRAIN-TEST SPLIT AND MODEL TRAINING** 
+
+```
+X = df.drop(columns=['Outcome Variable'])
+y = df['Outcome Variable']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf.fit(X_train, y_train)
+y_pred = rf.predict(X_test)
+```
+**STEP-6** **MODEL EVALUATION**
+```
+accuracy = accuracy_score(y_test, y_pred)
+conf_matrix = confusion_matrix(y_test, y_pred)
+class_report = classification_report(y_test, y_pred)
+
+print(f'Accuracy: {accuracy:.2f}')
+print('Confusion Matrix:\n', conf_matrix)
+print('Classification Report:\n', class_report)
+```
+
+![image](https://github.com/user-attachments/assets/4e44bcd0-a050-42e8-b0b8-b00574da6d54)
+
+**STEP-7** **DATA VISUALISATION**
+
+#### A.Feature importance plot
+```
+feature_importances = pd.Series(rf.feature_importances_, index=X.columns).sort_values(ascending=False)
+plt.figure(figsize=(10, 6))
+sns.barplot(x=feature_importances, y=feature_importances.index)
+plt.xlabel('Importance Score')
+plt.ylabel('Features')
+plt.title('Feature Importance in Random Forest')
+plt.show()
+```
+**VISUALISATION FOR THE FEATURE IMPORTANCE**
+![image](https://github.com/user-attachments/assets/0ba16f3b-a9ed-4034-af6c-f938026c985a)
+
+
+####  B.Confusion matrix Heatmap
+```
+plt.figure(figsize=(6, 4))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=label_encoders['Outcome Variable'].classes_, yticklabels=label_encoders['Outcome Variable'].classes_)
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix')
+plt.show()
+```
+**CONFUSION MATRIX - ACTUAL VS PREDICTED**
+![image](https://github.com/user-attachments/assets/60ae8e6a-3c12-46ea-9c40-992ef2fed995)
+
+
+Now based on the data given and predictions taken from the dataset, now we make model to predict the diseases bsed on the symptoms we input to it
+
+**STEP-8** **DISEASE PREDICTION**
+
+```
+def predict_disease():
+    user_input = {}
+    for col in X.columns:
+        if col in label_encoders:
+            options = list(label_encoders[col].classes_)
+            print(f"Select {col} ({', '.join(options)}): ")
+            value = input()
+            user_input[col] = label_encoders[col].transform([value])[0]
+        else:
+            value = input(f"Enter {col}: ")
+            user_input[col] = int(value)
+
+    input_df = pd.DataFrame([user_input])
+    prediction = rf.predict(input_df)[0]
+    predicted_disease = label_encoders['Outcome Variable'].inverse_transform([prediction])[0]
+    print(f"Predicted Outcome: {predicted_disease}")
+
+if __name__ == "__main__":
+    predict_disease()
+```
+**MODEL INPUTS**
+![image](https://github.com/user-attachments/assets/ecbcf980-922f-45c9-aa86-70a0b4dfec16)
+
+## RESULTS AND DISCUSSIONS
+
+
