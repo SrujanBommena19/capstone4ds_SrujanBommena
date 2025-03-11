@@ -94,9 +94,9 @@ w is the weight vector and b is the bias term.
 
 XGBOOST is the ensemble learning technique that builds multiple decision trees.
 
-$$
-L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k) 
-$$
+``` math
+L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
+```
 
 l is the loss function and omega is the regularization term.
 
@@ -112,9 +112,9 @@ The analytical steps inlcude the following;
 
 4.  EVALUATION: The successful measurement of model accuracy requires determining the ratio of accurate predictions and precision assesses the true positive count against all detected positives. Model performance regarding its ability to detect positive cases is measured by recall and its classification capabilities are evaluated through AUC-ROC measurements.
 
-5.  INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.
+5.  INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.\
 
-![](images/WhatsApp%20Image%202025-02-24%20at%208.10.32%20PM.jpeg){fig-align="center" width="322"}
+![](images/WhatsApp Image 2025-02-24 at 8.10.32 PM.jpeg){fig-align="center"}
 
 ### SOFTWARE TOOLS
 
@@ -142,3 +142,116 @@ GOOGLE COLAB : I have used google colab for the cloud-based execution of my code
 ### ETHICAL CONSIDERATIONS {#ethical-considerations}
 
 The dataset contains anonymized patient data to protect privacy. Data management needs strict ethical treatment alongside equal model prediction distribution and unbiased healthcare choices must be ensured.
+
+## EXPREIMENTAL PROCEDURE
+
+This project includes various steps to be considered as follows;
+
+**INSTALL LIBRARIES**
+
+```         
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+**IMPORT SCIKIT LEARN TOOLS**
+
+```         
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+```
+
+**READING THE DATA**
+
+```         
+file_path = "/content/Disease_symptom_and_patient_profile_dataset.csv"
+df = pd.read_csv(file_path)
+```
+
+**DATA CLEANING AND TRIMMING**
+
+```         
+label_encoders = {}
+for col in df.columns:
+    if df[col].dtype == 'object':
+        le = LabelEncoder()
+        df[col] = le.fit_transform(df[col])
+        label_encoders[col] = le
+```
+
+**TRAIN TEST SPLIT TRAINING AND MODEL**
+
+```         
+X = df.drop(columns=['Outcome Variable'])
+y = df['Outcome Variable']
+
+# Split dataset into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize models
+models = {
+    "Logistic Regression": LogisticRegression(max_iter=1000),
+    "XGBoost": XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+}
+
+# Train and evaluate each model
+for name, model in models.items():
+    print(f"\nModel: {name}")
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    conf_matrix = confusion_matrix(y_test, y_pred)
+    class_report = classification_report(y_test, y_pred)
+    print(f"Accuracy: {accuracy:.2f}")
+    print("Confusion Matrix:\n", conf_matrix)
+    print("Classification Report:\n", class_report)
+```
+
+### LOGISTIC REGRESSION
+
+![](images/WhatsApp Image 2025-03-10 at 9.23.01 PM.jpeg){fig-align="center" width="500"}
+
+### XGBOOST
+
+![](images/WhatsApp Image 2025-03-10 at 9.23.02 PM.jpeg){fig-align="center" width="500"}
+
+**DATA VISUALISATION**
+
+\### CONFUSION MATRIX
+
+```         
+    plt.figure(figsize=(6, 4))
+    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=label_encoders['Outcome Variable'].classes_, yticklabels=label_encoders['Outcome Variable'].classes_)
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
+    plt.title(f'{name} - Confusion Matrix')
+    plt.show()
+```
+
+#### LOSGISTIC REGRESSION
+
+![](images/WhatsApp Image 2025-03-10 at 9.23.02 PM (1).jpeg){fig-align="center" width="500"}
+
+#### XGBOOST
+
+![](images/WhatsApp Image 2025-03-10 at 9.23.03 PM.jpeg){fig-align="center" width="500"}
+
+```         
+sns.pairplot(df, hue='Outcome Variable')
+plt.suptitle('Pairwise Feature Relationships', y=1.02)
+plt.show()
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Feature Correlation Heatmap')
+plt.show()
+```
+
+#### FEATURE CO-RELATION HEATMAP
+
+![](images/WhatsApp Image 2025-03-10 at 9.23.06 PM.jpeg){width="600"}

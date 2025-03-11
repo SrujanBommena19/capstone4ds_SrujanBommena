@@ -187,9 +187,7 @@ f(X) = w^T X + b
 <section id="xgboost-1" class="level4">
 <h4 class="anchored" data-anchor-id="xgboost-1">XGBOOST</h4>
 <p>XGBOOST is the ensemble learning technique that builds multiple decision trees.</p>
-<p><span class="math display">\[
-L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
-\]</span></p>
+<pre class="math"><code>L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)</code></pre>
 <p>l is the loss function and omega is the regularization term.</p>
 </section>
 </section>
@@ -201,11 +199,12 @@ L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
 <li><p>FEATURE SELECTION: Analysis of disease prediction features requires techniques that use correlation analysis and feature importance ranking methods.</p></li>
 <li><p>MODEL TRAINING: The baseline model of Logistic Regression received training as a benchmark for describing model performance.Support Vector Machine uses its algorithm to discover the hyperplane which provides maximum separation between different classes. XGBoost operates through boosting methodology to combine various weak learners that improve classification outcomes.</p></li>
 <li><p>EVALUATION: The successful measurement of model accuracy requires determining the ratio of accurate predictions and precision assesses the true positive count against all detected positives. Model performance regarding its ability to detect positive cases is measured by recall and its classification capabilities are evaluated through AUC-ROC measurements.</p></li>
-<li><p>INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.</p></li>
+<li><p>INTERPRETATION: The evaluation of models through performance metrics along with analysis of their feature importance allows practitioners to identify which patient symptoms and characteristics best indicate particular diseases.<br>
+</p></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/WhatsApp%20Image%202025-02-24%20at%208.10.32%20PM.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="322"></p>
+<p><img src="images/WhatsApp%20Image%202025-02-24%20at%208.10.32%20PM.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </section>
@@ -236,6 +235,107 @@ L(\theta) = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)
 <section id="ethical-considerations" class="level3">
 <h3 class="anchored" data-anchor-id="ethical-considerations">ETHICAL CONSIDERATIONS</h3>
 <p>The dataset contains anonymized patient data to protect privacy. Data management needs strict ethical treatment alongside equal model prediction distribution and unbiased healthcare choices must be ensured.</p>
+</section>
+</section>
+<section id="expreimental-procedure" class="level2">
+<h2 class="anchored" data-anchor-id="expreimental-procedure">EXPREIMENTAL PROCEDURE</h2>
+<p>This project includes various steps to be considered as follows;</p>
+<p><strong>INSTALL LIBRARIES</strong></p>
+<pre><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns</code></pre>
+<p><strong>IMPORT SCIKIT LEARN TOOLS</strong></p>
+<pre><code>from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report</code></pre>
+<p><strong>READING THE DATA</strong></p>
+<pre><code>file_path = "/content/Disease_symptom_and_patient_profile_dataset.csv"
+df = pd.read_csv(file_path)</code></pre>
+<p><strong>DATA CLEANING AND TRIMMING</strong></p>
+<pre><code>label_encoders = {}
+for col in df.columns:
+    if df[col].dtype == 'object':
+        le = LabelEncoder()
+        df[col] = le.fit_transform(df[col])
+        label_encoders[col] = le</code></pre>
+<p><strong>TRAIN TEST SPLIT TRAINING AND MODEL</strong></p>
+<pre><code>X = df.drop(columns=['Outcome Variable'])
+y = df['Outcome Variable']
+
+# Split dataset into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize models
+models = {
+    "Logistic Regression": LogisticRegression(max_iter=1000),
+    "XGBoost": XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+}
+
+# Train and evaluate each model
+for name, model in models.items():
+    print(f"\nModel: {name}")
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    conf_matrix = confusion_matrix(y_test, y_pred)
+    class_report = classification_report(y_test, y_pred)
+    print(f"Accuracy: {accuracy:.2f}")
+    print("Confusion Matrix:\n", conf_matrix)
+    print("Classification Report:\n", class_report)</code></pre>
+<section id="logistic-regression-2" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-regression-2">LOGISTIC REGRESSION</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/WhatsApp%20Image%202025-03-10%20at%209.23.01%20PM.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
+</section>
+<section id="xgboost-2" class="level3">
+<h3 class="anchored" data-anchor-id="xgboost-2">XGBOOST</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/WhatsApp%20Image%202025-03-10%20at%209.23.02%20PM.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
+<p><strong>DATA VISUALISATION</strong></p>
+<p>### CONFUSION MATRIX</p>
+<pre><code>    plt.figure(figsize=(6, 4))
+    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=label_encoders['Outcome Variable'].classes_, yticklabels=label_encoders['Outcome Variable'].classes_)
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
+    plt.title(f'{name} - Confusion Matrix')
+    plt.show()</code></pre>
+<section id="losgistic-regression" class="level4">
+<h4 class="anchored" data-anchor-id="losgistic-regression">LOSGISTIC REGRESSION</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/WhatsApp%20Image%202025-03-10%20at%209.23.02%20PM%20(1).jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
+</section>
+<section id="xgboost-3" class="level4">
+<h4 class="anchored" data-anchor-id="xgboost-3">XGBOOST</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/WhatsApp%20Image%202025-03-10%20at%209.23.03%20PM.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
+<pre><code>sns.pairplot(df, hue='Outcome Variable')
+plt.suptitle('Pairwise Feature Relationships', y=1.02)
+plt.show()
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Feature Correlation Heatmap')
+plt.show()</code></pre>
+</section>
+<section id="feature-co-relation-heatmap" class="level4">
+<h4 class="anchored" data-anchor-id="feature-co-relation-heatmap">FEATURE CO-RELATION HEATMAP</h4>
+<p><img src="images/WhatsApp%20Image%202025-03-10%20at%209.23.06%20PM.jpeg" class="img-fluid" width="600"></p>
+</section>
 </section>
 </section>
 </section>
