@@ -152,3 +152,101 @@ GOOGLE COLAB : I have used google colab for the cloud-based execution of my code
 
 ### ETHICAL CONSIDERATIONS
 The dataset contains anonymized patient data to protect privacy. Data management needs strict ethical treatment alongside equal model prediction distribution and unbiased healthcare choices must be ensured.
+
+
+## EXPREIMENTAL PROCEDURE
+This project includes various steps to be considered as follows;
+
+**INSTALL LIBRARIES**
+```
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+**IMPORT SCIKIT LEARN TOOLS**
+```
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+```
+**READING THE DATA**
+```
+file_path = "/content/Disease_symptom_and_patient_profile_dataset.csv"
+df = pd.read_csv(file_path)
+```
+**DATA CLEANING AND TRIMMING**
+```
+label_encoders = {}
+for col in df.columns:
+    if df[col].dtype == 'object':
+        le = LabelEncoder()
+        df[col] = le.fit_transform(df[col])
+        label_encoders[col] = le
+```
+
+**TRAIN TEST SPLIT TRAINING AND MODEL**
+```
+X = df.drop(columns=['Outcome Variable'])
+y = df['Outcome Variable']
+
+# Split dataset into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize models
+models = {
+    "Logistic Regression": LogisticRegression(max_iter=1000),
+    "XGBoost": XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+}
+
+# Train and evaluate each model
+for name, model in models.items():
+    print(f"\nModel: {name}")
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    conf_matrix = confusion_matrix(y_test, y_pred)
+    class_report = classification_report(y_test, y_pred)
+    print(f"Accuracy: {accuracy:.2f}")
+    print("Confusion Matrix:\n", conf_matrix)
+    print("Classification Report:\n", class_report)
+```
+### LOGISTIC REGRESSION
+
+<img src="https://github.com/user-attachments/assets/da1fe368-e26a-4ee6-886b-9650cb466370" alt="image" width="500"/>
+
+### XGBOOST
+
+<img src="https://github.com/user-attachments/assets/0e42dce8-e065-40e6-8f03-b013d3ad14c9" alt="image" width="500"/>
+
+**DATA VISUALISATION**
+### CONFUSION MATRIX
+```
+    plt.figure(figsize=(6, 4))
+    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=label_encoders['Outcome Variable'].classes_, yticklabels=label_encoders['Outcome Variable'].classes_)
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
+    plt.title(f'{name} - Confusion Matrix')
+    plt.show()
+```
+#### LOSGISTIC REGRESSION
+<img src="https://github.com/user-attachments/assets/4d41cfe7-b246-49df-9271-b935642dcee2" alt="image" width="500"/>
+
+#### XGBOOST
+<img src="https://github.com/user-attachments/assets/b6c5b75e-3f34-4d40-b232-5d24965f184b" alt="image" width="500"/>
+
+```
+sns.pairplot(df, hue='Outcome Variable')
+plt.suptitle('Pairwise Feature Relationships', y=1.02)
+plt.show()
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Feature Correlation Heatmap')
+plt.show()
+```
+#### FEATURE CO-RELATION HEATMAP
+<img src="https://github.com/user-attachments/assets/fed6bf70-1075-46d1-8317-4fedadbc4bd2" alt="image" width="700"/>
