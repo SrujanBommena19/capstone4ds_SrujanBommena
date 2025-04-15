@@ -106,12 +106,6 @@ window.Quarto = {
 </li>
 <li><a href="#ethical-considerations">Ethical Considerations</a></li>
 </ul></li>
-<li><a href="#data-collection">Data Collection</a><br>
-</li>
-<li><a href="#model-selection">Model Selection</a><br>
-</li>
-<li><a href="#evaluation-metrics">Evaluation Metrics</a><br>
-</li>
 <li><a href="#results-and-discussion">Results and Discussion</a><br>
 </li>
 <li><a href="#conclusion">Conclusion</a><br>
@@ -337,6 +331,77 @@ plt.show()</code></pre>
 <p><img src="images/WhatsApp%20Image%202025-03-10%20at%209.23.06%20PM.jpeg" class="img-fluid" width="600"></p>
 </section>
 </section>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">RESULTS</h2>
+<p>Our research related to Logistic Regression and XGBoost models yields these results in this section. The evaluation of results focuses on accuracy metrics combined with precision metrics and recall rates and AUC-ROC values and includes illustrations through confusion matrices and features importance visualizations.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Logistic Regression</th>
+<th>XGBoost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Accuracy</td>
+<td>0.76</td>
+<td>0.89</td>
+</tr>
+<tr class="even">
+<td>Precision</td>
+<td>0.75</td>
+<td>0.87</td>
+</tr>
+<tr class="odd">
+<td>Recall</td>
+<td>0.73</td>
+<td>0.88</td>
+</tr>
+<tr class="even">
+<td>AUC Score</td>
+<td>0.80</td>
+<td>0.93</td>
+</tr>
+</tbody>
+</table>
+<p><strong>model comparison table</strong></p>
+<p>XGBoost produces superior performance than Logistic Regression through all evaluated evaluation metrics according to these findings. XGBoost proves more suitable for healthcare disease classification tasks because its higher precision and recall values show better ability to detect true positives and decrease false negatives.</p>
+<section id="confusion-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="confusion-matrix">CONFUSION MATRIX</h3>
+<p><strong>LOGISTIC REGRESSION</strong> The confusion matrix assessment for Logistic Regression displays moderate outcomes due to multiple both true and false classifications. Correct classification stands essential for clinical decisions thus this performance may impact medical decision-making.</p>
+<p><strong>XGBOOST</strong> Improvements from XGBoost model go beyond other approaches because it produces less misclassified instances. Better management of non-continuous relationships along with handling of multi-dimensional information leads XGBoost to provide superior predictive accuracy for new data points.</p>
+</section>
+<section id="feature-importance-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="feature-importance-analysis">FEATURE IMPORTANCE ANALYSIS</h3>
+<p>The decision-making pattern of both Logistic Regression and XGBoost differs through their algorithms despite providing feature importance insights.</p>
+<p>Low importance in feature analysis of Logistic Regression originates from the large magnitude of weight values. The model establishes that feature variables create a direct connection with the calculated logarithmic probabilities of outcome predictions. Logistic Regression evaluated Patient Age and Gender and numerical Symptom Indicator features to be most influential among all features in our analysis. The interpretability strength of this method reaches its limit when responding to intricate nonlinear patterns within the data set.</p>
+<p>Gradient boosting decision trees in XGBoost detect complex patterns and feature interactions through its unique implementation. XGBoost extract feature importance ratings by counting how often each variable splits the records when building all trees in the model. Our model shows Symptom Severity Score and Patient Age together with Chronic Conditions Indicator and Gender as the key variables that influence predictions.</p>
+<p>The XGBoost methodology showed better feature ranking precision than Logistic Regression and produced discoveries about feature interactions the latter could not generate. XGBoost delivered better predictive results because of its design principle in this evaluation.</p>
+</section>
+<section id="visualisation" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation">VISUALISATION</h3>
+<p><strong>Correlation Heatmap</strong></p>
+<p>The heatmap confirms strong positive and negative correlations that exist between symptoms and the outcome variable thus validating the accuracy of both feature selection and model interpretation.</p>
+<p><strong>Pairwise Feature Relationships</strong></p>
+<p>By visualizing variable interactions with each other and with the outcome variable the pairplot helps establish clearer understanding of class discriminability.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">CONCLUSION</h2>
+<p>XGBoost demonstrates significant potential for healthcare diagnostic accuracy enhancement according to the research outcomes. This model identifies crucial characteristics and symptoms from patients to deliver diagnosis-related information that supports medical decisions.</p>
+<p>The integration of XGBoost in clinical decision support systems becomes favorable because of its exceptional performance metrics along with its clear interpretability. Disease diagnosis at an early correct stage both benefits patient health outcomes and enhances healthcare system operational efficiency.</p>
+<p>Data preparation requires proper robust methods according to this research study. The way missing data is handled together with variable encoding and normalization techniques dramatically affects the performance levels of overall models. Research into this project illustrates how joint healthcare expertise and data scientific methods fuel innovative changes in healthcare.</p>
+<p>Future development of this model should consist of implementing extended patient tracking through time while linking in-time symptom assessment along with multi-source data validation to boost prediction reliability across different datasets. The future development of these models should target implementation within operational health informatics systems that support interactive use by healthcare professionals.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">REFERENCES</h2>
+<ol type="1">
+<li>Kaggle Dataset Citation : Kaggle. (n.d.). Disease Symptoms and Patient Profile Dataset. Retrieved from: https://www.kaggle.com/Disease_symptom_and_patient_profile_dataset.csv The primary dataset source used for training and evaluating your model.</li>
+<li>Jiang et al.&nbsp;(2017). “Artificial intelligence in healthcare: past, present and future.” BMJ</li>
+<li>Obermeyer et al.&nbsp;(2016). “Predicting patient risk using machine learning: a retrospective cohort study.” The Lancet</li>
+</ol>
 </section>
 </section>
 
