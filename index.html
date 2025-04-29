@@ -334,38 +334,49 @@ plt.show()</code></pre>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">RESULTS</h2>
+<p><strong>ROC CUVRE FOR DIFFERENT MODELS</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/roc.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+<p>Interpretation : XGBoost proves to be a superior model than Logistic Regression and SVM according to its AUC measurement of 0.82.</p>
 <p>Our research related to Logistic Regression and XGBoost models yields these results in this section. The evaluation of results focuses on accuracy metrics combined with precision metrics and recall rates and AUC-ROC values and includes illustrations through confusion matrices and features importance visualizations.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Metric</th>
-<th>Logistic Regression</th>
-<th>XGBoost</th>
+<th>Model</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>AUC</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Accuracy</td>
-<td>0.76</td>
-<td>0.89</td>
+<td>Logistic Regression</td>
+<td>0.56</td>
+<td>0.56</td>
+<td>0.55</td>
+<td>0.62</td>
 </tr>
 <tr class="even">
-<td>Precision</td>
+<td>XGBoost</td>
+<td>0.77</td>
+<td>0.78</td>
 <td>0.75</td>
-<td>0.87</td>
+<td>0.82</td>
 </tr>
 <tr class="odd">
-<td>Recall</td>
-<td>0.73</td>
+<td>RandomF</td>
+<td>0.89</td>
+<td>0.87</td>
 <td>0.88</td>
-</tr>
-<tr class="even">
-<td>AUC Score</td>
-<td>0.80</td>
 <td>0.93</td>
 </tr>
 </tbody>
 </table>
+<p>Interpretation : XGBoost demonstrates a slight advantage over Random Forest while XGBoost strikes a better balance between model explanation and overfitting protection than Random Forest.</p>
 <p><strong>model comparison table</strong></p>
 <p>XGBoost produces superior performance than Logistic Regression through all evaluated evaluation metrics according to these findings. XGBoost proves more suitable for healthcare disease classification tasks because its higher precision and recall values show better ability to detect true positives and decrease false negatives.</p>
 <section id="confusion-matrix" class="level3">
