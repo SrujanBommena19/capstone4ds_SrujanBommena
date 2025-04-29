@@ -1,6 +1,13 @@
-# MACHINE LEARNING AND PREDICTIVE ANALYTICS IN HEALTH CARE
 
-### Developing Models to Predict Outcomes in Healthcare
+<!-- Title Page -->
+<div style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <h1>MACHINE LEARNING AND PREDICTIVE ANALYTICS IN HEALTH CARE
+</h1>
+  <h2> Developing Models to Predict Outcomes in Healthcare <h2>
+  <p>Srujan Bommena</p>
+  <p>April 29, 2025</p>
+</div>
+<!-- Force a page break -->
 
 ## Table of Contents
 
@@ -21,7 +28,7 @@
 
 ------------------------------------------------------------------------
 
-## INTRODUCTION {#introduction}
+## INTRODUCTION
 
 ### PROBLEM DEFINATION {#problem-defination}
 
